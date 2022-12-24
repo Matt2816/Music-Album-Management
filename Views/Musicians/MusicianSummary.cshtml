@@ -1,0 +1,55 @@
+﻿@model IEnumerable<MVC_Music.ViewModels.MusicianReportsSummaryVM>
+
+@{
+    ViewData["Title"] = "MusicianSummary";
+}
+
+<h2>Musician Summary</h2>
+<a asp-action="DownloadReport" class="btn btn-info float-end">Download Musician Report</a>
+
+<form asp-controller="Musicians" asp-action="MusicianSummary" method="get">
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.FormalName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AverageFeePaid)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.HighestFeePaid)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LowestFeePaid)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NumberofPerformances)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.FormalName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AverageFeePaid)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HighestFeePaid)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LowestFeePaid)
+            </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NumberofPerformances)
+                </td>
+        </tr>
+}
+    </tbody>
+</table>
+<partial name="_PagingNavBar" />
+</form>

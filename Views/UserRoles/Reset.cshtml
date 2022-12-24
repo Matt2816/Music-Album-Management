@@ -1,0 +1,11 @@
+﻿@model IEnumerable<MVC_Music.ViewModels.UserVM>
+
+@{
+    ViewBag.Title = "User Reset";
+}
+
+<h2>User Password Reset</h2>
+<form asp-action="Reset">
+    <div class="text-success">@ViewData["Failed"]</div>
+    <div class="text-success">@ViewData["Message"]</div>
+</form>
